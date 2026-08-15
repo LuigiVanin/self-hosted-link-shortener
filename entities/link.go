@@ -15,5 +15,4 @@ type Link struct {
 	Metadata json.RawMessage `json:"metada"`
 
 	CreatedAt time.Time `gorm:"default:CURRENT_TIMESTAMP;not null" json:"created_at"`
-	Body      string    `json:"body"`
 }

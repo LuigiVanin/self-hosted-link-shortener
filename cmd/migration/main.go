@@ -4,12 +4,12 @@ import (
 	"fmt"
 	"selfhost-link-shortener/bootstrap"
 	entity "selfhost-link-shortener/entities"
+	"selfhost-link-shortener/shared"
 )
 
-const URL string = "postgresql://postgres:1337@192.168.15.3:5432/selfhost-linkshortener"
-
 func main() {
-	db := bootstrap.NewDatabase(URL)
+	env := shared.NewEnv()
+	db := bootstrap.NewDatabase(env.DatabaseUrl)
 
 	err := db.AutoMigrate(&entity.Link{})
 

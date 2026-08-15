@@ -26,7 +26,11 @@ func GetCredentials() map[string]any {
 func Authorization(ctx fiber.Ctx) error {
 	authorization := ctx.GetHeaders()["Authorization"]
 
-	if !ctx.HasHeader("Authorization") || len(authorization) == 0 {
+	if len(authorization) == 0 {
+		authorization = ctx.GetHeaders()["Auth"]
+	}
+
+	if (!ctx.HasHeader("Authorization") && !ctx.HasHeader("Auth")) || len(authorization) == 0 {
 		return erro.ThrowBadRequest("Lack of authorization token")
 	}
 

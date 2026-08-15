@@ -3,12 +3,20 @@ module selfhost-link-shortener
 go 1.25.3
 
 require (
+	github.com/LuigiVanin/openapi-builder v0.2.1
+	github.com/go-playground/validator/v10 v10.30.3
+	github.com/gofiber/fiber/v3 v3.4.0
+	gorm.io/driver/postgres v1.6.2
+	gorm.io/gorm v1.31.2
+)
+
+require (
 	github.com/andybalholm/brotli v1.2.2 // indirect
+	github.com/flowchartsman/swaggerui v0.0.0-20221017034628-909ed4f3701b // indirect
 	github.com/gabriel-vasile/mimetype v1.4.13 // indirect
 	github.com/go-playground/locales v0.14.1 // indirect
 	github.com/go-playground/universal-translator v0.18.1 // indirect
-	github.com/go-playground/validator/v10 v10.30.3 // indirect
-	github.com/gofiber/fiber/v3 v3.4.0 // indirect
+	github.com/goccy/go-yaml v1.19.2 // indirect
 	github.com/gofiber/schema v1.8.0 // indirect
 	github.com/gofiber/utils/v2 v2.1.1 // indirect
 	github.com/google/uuid v1.6.0 // indirect
@@ -31,6 +39,4 @@ require (
 	golang.org/x/sync v0.22.0 // indirect
 	golang.org/x/sys v0.46.0 // indirect
 	golang.org/x/text v0.40.0 // indirect
-	gorm.io/driver/postgres v1.6.2 // indirect
-	gorm.io/gorm v1.31.2 // indirect
 )

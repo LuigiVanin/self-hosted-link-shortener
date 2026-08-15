@@ -67,8 +67,6 @@ func Validator[T any]() func(fiber.Ctx) error {
 		var payload T
 		err := ctx.Bind().Body(&payload)
 
-		fmt.Println(payload)
-
 		if err != nil {
 			fmt.Println(err.Error())
 			return erro.ThrowUnprocessableEntity(err.Error())
