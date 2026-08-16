@@ -28,6 +28,10 @@ This is a Link Shortener application that is completely self-hosted using a Rasp
 > - Postgres
 > - Docker
 
+
+> [!TIP]
+> The Swagger/OpenAPI document served at `/docs` is generated with [openapi-builder](https://github.com/LuigiVanin/openapi-builder), a Go library of mine for building OpenAPI documents programmatically.
+
 ## Environment Variables
 
 The application is configured via the following environment variables (see [.env.example](.env.example)):
@@ -37,6 +41,26 @@ The application is configured via the following environment variables (see [.env
 | `USER_LOGIN`     | Login used for the Basic authentication credentials on the POST route | Yes      |
 | `USER_PASSWORD`  | Password used for the Basic authentication credentials on the POST route | Yes      |
 | `DATABASE_URL`   | Postgres connection string used to store the shortened links       | Yes      |
+
+## Installation & Development
+
+1. Clone the repository and copy [.env.example](.env.example) to `.env`, filling in the variables described above.
+2. Have a Postgres instance available and pointed to by `DATABASE_URL`.
+3. Run the server using `make`, which automatically injects the `.env` file into the environment:
+
+```bash
+> make run   # runs the server once
+> make dev   # runs the server with air, reloading on changes
+```
+
+Alternatively, without make, the `.env` variables need to be exported manually:
+
+```bash
+> export $(cat .env | xargs) && go run ./cmd
+
+# Or using air for development hot reloading
+> export $(cat .env | xargs) && air
+```
 
 ## Docker
 
